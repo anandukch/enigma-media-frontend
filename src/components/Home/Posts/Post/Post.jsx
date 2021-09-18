@@ -1,38 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
+  Backdrop,
   Card,
   CardActions,
   CardContent,
   CardHeader,
   CardMedia,
   IconButton,
+  CircularProgress,
+  Paper
 } from "@material-ui/core";
 import useStyles from "./styles";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import PostCard from "./PostCard";
 
-function Post() {
+function Post({name,comment}) {
   const classes = useStyles();
+  const [open,setOpen]=useState(false);
+  const clickHandler=()=>{
+    setOpen(!open)
+  }
+
   return (
-    <Card className={classes.card} raised elevation={4}>
+    <>
+    {open && (<PostCard openChange={clickHandler} name={name} comment={comment}/>)}
+    <Card className={classes.card} raised elevation={4} onClick={clickHandler} >
       <CardHeader
         avatar={<Avatar className={classes.avatar}>R</Avatar>}
-        title="Post Title"
+        title={name}
         subheader="September 14, 2016"
       />
-      <CardContent>
-        <h1>dfgfsg</h1>
+      <CardContent >
+        <p>{comment}</p>
       </CardContent>
-      <CardMedia
-        className={classes.media}
-        image="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg"
-      />
+      <img  className={classes.media} src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" alt="" />
       <CardActions disableSpacing>
         <IconButton>
           <FavoriteIcon color='primary'/>
         </IconButton>
       </CardActions>
     </Card>
+   
+    </>
   );
 }
 

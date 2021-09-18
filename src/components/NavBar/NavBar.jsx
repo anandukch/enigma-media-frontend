@@ -26,7 +26,7 @@ const NavBar = () => {
  
 }
   useEffect(()=>{
-    dispatch(fetchPosts())
+    // dispatch(fetchPosts())
     const token = user?.token;
 
     if (token) {
@@ -36,7 +36,7 @@ console.log(decodedToken);
     }
    
     setUser(JSON.parse(localStorage.getItem('token')))
-  },[location,logout])
+  },[location])
   
   return (
    
@@ -51,7 +51,7 @@ console.log(decodedToken);
             <Button onClick={logout}> 
             Log Out
             </Button>
-          <Avatar  src={user?.user.imageUrl}>{user.user.name.charAt(0)}</Avatar>
+          <Avatar  src={user?.user.imageUrl}>{user?.user.name.charAt(0)}</Avatar>
             </>
           ):(
             <>
