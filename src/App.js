@@ -6,24 +6,20 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from "react-router-dom";
-import axios from "axios";
 import NavBar from "./components/NavBar/NavBar.jsx";
-
 import Auth from "./components/Auth/Auth";
 import Home from "./components/Home/Home";
 
 function App() {
   const user = localStorage.getItem("token");
-
   return (
     <Router>
-      <NavBar />
-
+      <NavBar/>
       <Switch>
         <Route path="/" exact component={() => <Redirect to="/posts" />} />
+        {/* <Route path="/" exact component={() =>(user ? <Redirect to="/" /> : <Redirect to="/auth" />)} /> */}
         <Route to path="/posts" exact component={Home} />
         <Route
           to

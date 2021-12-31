@@ -14,5 +14,4 @@ function PostCard({openChange,name,comment}) {
         </Backdrop>
     )
 }
-
 export default PostCard

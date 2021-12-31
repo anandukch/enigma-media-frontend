@@ -8,7 +8,6 @@ const postReducer = (state = { isLoading: true, posts: [] }, action) => {
         ...state,
         posts: action?.payload.posts,
       };
-
     default:
       return state;
   }

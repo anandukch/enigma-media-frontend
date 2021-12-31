@@ -1,4 +1,4 @@
-import { AUTH, LOGOUT } from "../constants";
+import { AUTH, ERROR, LOGOUT } from "../constants";
 
 const authReducer = (state = { userData: null }, action) => {
   switch (action.type) {
@@ -9,7 +9,7 @@ const authReducer = (state = { userData: null }, action) => {
         ...state,
         userData: action?.data,
       };
-    case "ERROR":
+    case ERROR:
       return {
         ...state,
         error: action?.data,

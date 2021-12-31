@@ -3,7 +3,6 @@ import * as api from "../api";
 
 export const signin = (formData, router) => async (dispach) => {
   try {
-    // console.log(formData);
     const { data } = await api.signIn(formData);
     dispach({
       type: AUTH,

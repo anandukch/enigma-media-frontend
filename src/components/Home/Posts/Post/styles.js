@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(theme=>({
     card:{
-        width:'95%',
+        // width:'100%',
         marginTop:'10px',
         height:'80%',
         // alignItems:'center',

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  CircularProgress,
-  Backdrop,
   Paper,
   Container,
   Grid,
@@ -124,13 +122,14 @@ function Auth() {
               Submit
             </Button>
            
-            <Grid container alignItems='center'>
+            <Grid container alignItems='center' justifyContent="center">
               <GoogleLogin
                 clientId="784711989351-6lbr6iv7hr359tmok5ftj2buraj6smqc.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={responseGoogle}
-                onFailure={responseGoogle}
+                onFailure={() => console.log("error")}
                 cookiePolicy={"single_host_origin"}
+                style={{ padding: "30px" }}
               />
             </Grid>
           </Grid>
